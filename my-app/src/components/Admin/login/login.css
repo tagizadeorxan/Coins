@@ -135,4 +135,10 @@
   cursor: pointer;
 }
 
+.home-button {
+  outline:none;
+  border:none;
+  background: none;
+}
+
 
