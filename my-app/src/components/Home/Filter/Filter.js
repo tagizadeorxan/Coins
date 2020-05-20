@@ -50,7 +50,7 @@ class Filter extends Component {
                     <div>
                         <label>Issuing country</label>
                         <select  onChange={this.handleSearch} ref={this.issuingcountry} className="minimal">
-                            <option selected hidden>CANADA</option>
+                            <option defaultValue="CANADA" hidden>CANADA</option>
                             {countries.map((e, i) => <option  key={i}>{e}</option>)}
                         </select>
                     </div>
@@ -58,14 +58,14 @@ class Filter extends Component {
                     <div>
                         <label>Metal</label>
                         <select  defaultValue="" onChange={this.handleSearch} ref={this.composition} className="minimal">
-                            <option selected hidden>NICKEL</option>
+                            <option defaultValue="NICKEL" hidden>NICKEL</option>
                             {compositions.map((e, i) => <option  key={i}>{e}</option>)}
                         </select>
                     </div>
 
                     <div>
                         <label>Quality of the coin</label>
-                        <select  defaultValue="" onChange={this.handleSearch} ref={this.quality} className="minimal">
+                        <select  defaultValue="BU" onChange={this.handleSearch} ref={this.quality} className="minimal">
                   
                             {qualities.map((e, i) => <option  key={i}>{e}</option>)}
                         </select>

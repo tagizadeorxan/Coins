@@ -42,14 +42,16 @@ class HomePage extends Component {
 
     // advanced filter  options recieving inputs from Filter js
     handleSearchData = () => {
-
+  console.log("ok")
         let result = [];
         let { searchdata } = this.state;
         if (this.state.visible && searchdata !== undefined) {
-
+           console.log("not ok")
             this.setState({ searchdata });
             result = this.state.coins.filter(e =>
- e.name.substring(0, this.input.current.value.length).toLowerCase() === this.input.current.value.toLowerCase() &&
+                
+//  e.name.substring(0, this.input.current.value.length).toLowerCase() === this.input.current.value.toLowerCase() &&   if you want to check only beggining of string
+   e.name.toLowerCase().includes(this.input.current.value.toLowerCase()) == true &&
                 e.issuingcountry.toUpperCase() === searchdata.issuingcountry
                 && e.composition.toUpperCase() === searchdata.composition
                 && e.quality.toUpperCase() === searchdata.quality
@@ -60,8 +62,9 @@ class HomePage extends Component {
             );
         } else {
             result = this.state.coins.filter(e =>
-                e.name.substring(0, this.input.current.value.length).toLowerCase() === this.input.current.value.toLowerCase())
-        }
+                e.name.toLowerCase().includes(this.input.current.value.toLowerCase()) == true 
+                // e.name.substring(0, this.input.current.value.length).toLowerCase() === this.input.current.value.toLowerCase())     this is if you want search by start of word
+            )}
 
         this.setState({ showall: result });
     }
