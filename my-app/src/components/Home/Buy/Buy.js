@@ -31,8 +31,16 @@ class Buy extends Component {
           body: newArray,
           foot:[['Total','',`${total} RUB`]]
         })
+
+
+        localStorage.setItem('coins', JSON.stringify([]));
         doc.save('invoice.pdf');
-        window.location.href = 'https://money.yandex.ru/to/4100112631273796'
+        let win = window.open('https://money.yandex.ru/to/4100112631273796', '_blank');
+        win.focus();
+       
+        
+        window.location.href = '/';
+     
     }
 
 
