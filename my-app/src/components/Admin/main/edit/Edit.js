@@ -24,6 +24,9 @@ const Edit = (props) => {
         console.log(array)
         element = array.find(e => e.id === +props.match.params.id)
         console.log(element)
+        if(element === undefined) {
+            window.location.href = '/'
+        }
         setID(element.id);
         setArray(array);
         setElement(element);
