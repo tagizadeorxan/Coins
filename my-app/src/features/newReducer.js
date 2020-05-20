@@ -7,7 +7,7 @@ let initialState = {
   coins: [],
   loading: false,
   error: null,
-  tokenloading:false
+  tokenloading: false
 }
 
 export default function newReducer(state = initialState, action) {
@@ -21,7 +21,6 @@ export default function newReducer(state = initialState, action) {
         token: action.payload.token,
         loading: false
       }
-      break;
     case actions.ADMIN_LOGOUT:
 
       const requestBody = {
@@ -37,22 +36,17 @@ export default function newReducer(state = initialState, action) {
       localStorage.removeItem('login');
       window.location.href = '/';
 
-
       return {
         ...state,
         login: '',
         token: ''
       }
-     
-
 
     case actions.LOADING:
       return {
         ...state,
         loading: true
       }
-  
-
 
 
     case actions.LOGIN_FAILED:
@@ -60,8 +54,6 @@ export default function newReducer(state = initialState, action) {
         ...state,
         loading: false
       }
-    
-
 
     case actions.FETCH_COINS_BEGIN:
 
@@ -88,36 +80,27 @@ export default function newReducer(state = initialState, action) {
         items: []
       };
 
-      
+
     case actions.CHECK_TOKEN:
-            console.log("newreducer check token")
+      console.log("newreducer check token")
       return {
         ...state,
         tokenloading: true
       };
 
-      case actions.TOKEN_SUCCESS:
-           console.log("success")
-        return {
-          ...state,
-          tokenloading: false
-        };
-      case actions.TOKEN_FAILURE:
-        return {
-          ...state,
-          tokenloading:null
-        }
-
-
-
-
-
-
-
-
+    case actions.TOKEN_SUCCESS:
+      console.log("success")
+      return {
+        ...state,
+        tokenloading: false
+      };
+    case actions.TOKEN_FAILURE:
+      return {
+        ...state,
+        tokenloading: null
+      }
 
     default:
       return state;
-      break;
   }
 }

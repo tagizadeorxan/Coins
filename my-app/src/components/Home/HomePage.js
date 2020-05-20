@@ -51,7 +51,7 @@ class HomePage extends Component {
             result = this.state.coins.filter(e =>
                 
 //  e.name.substring(0, this.input.current.value.length).toLowerCase() === this.input.current.value.toLowerCase() &&   if you want to check only beggining of string
-   e.name.toLowerCase().includes(this.input.current.value.toLowerCase()) == true &&
+   e.name.toLowerCase().includes(this.input.current.value.toLowerCase()) === true &&
                 e.issuingcountry.toUpperCase() === searchdata.issuingcountry
                 && e.composition.toUpperCase() === searchdata.composition
                 && e.quality.toUpperCase() === searchdata.quality
@@ -97,17 +97,17 @@ class HomePage extends Component {
         }
 
         let exclusiveIMG = exclusive[Math.floor(Math.random() * exclusive.length)];
-        if (exclusiveIMG != undefined) {
+        if (exclusiveIMG !== undefined) {
             console.log(exclusiveIMG);
             this.setState({ exclusiveIMG: exclusiveIMG.frontphoto })
         }
 
         let commemorativeIMG = commemorative[Math.floor(Math.random() * commemorative.length)];
-        if (commemorativeIMG != undefined) {
+        if (commemorativeIMG !== undefined) {
             this.setState({ commemorativeIMG: commemorativeIMG.frontphoto })
         }
 
-        if (props.coins[0] != undefined) {
+        if (props.coins[0] !== undefined) {
             let searchdata = {
                 issuingcountry: props.coins[0].issuingcountry.toUpperCase(),
                 composition: props.coins[0].composition.toUpperCase(),
@@ -138,19 +138,19 @@ class HomePage extends Component {
         return (
             <div className="main-container">
              <div className="raiting-top-three-coins">
-                <div><img src={gold}/><img src={this.state.raiting.length>1? this.state.raiting[0].frontphoto : null}/></div>
-                <div><img src={silver}/><img src={this.state.raiting.length>1? this.state.raiting[1].frontphoto : null}/></div>
-                <div><img src={bronze}/><img src={this.state.raiting.length>1? this.state.raiting[2].frontphoto : null}/></div>
+                <div><img alt="gold-icon" src={gold}/><img alt="coin" src={this.state.raiting.length>1? this.state.raiting[0].frontphoto : null}/></div>
+                <div><img alt="silver-icon" src={silver}/><img alt="coin" src={this.state.raiting.length>1? this.state.raiting[1].frontphoto : null}/></div>
+                <div><img alt="bronze-icon" src={bronze}/><img alt="coin" src={this.state.raiting.length>1? this.state.raiting[2].frontphoto : null}/></div>
              </div>
-             <NavLink className="admin-panel" to='/buy'><img src={buy}/><div>{(JSON.parse(localStorage.getItem('coins')) || []).length}</div></NavLink>
-                <NavLink className="admin-panel" to='/admin'><img src={admin}/></NavLink>
+             <NavLink className="admin-panel" to='/buy'><img alt="buy-icon" src={buy}/><div>{(JSON.parse(localStorage.getItem('coins')) || []).length}</div></NavLink>
+                <NavLink className="admin-panel" to='/admin'><img alt="admin-icon" src={admin}/></NavLink>
                 {this.state.allcoins || <div className="admin-panel-header">
                     <div className="header"><span>Homepage</span></div>
 
                 </div>}
 
                 {this.state.allcoins && <div className="admin-panel-header">
-                    <div className="header"><span>List of the coins</span><img onClick={this.handleHome} src={home}/></div>
+                    <div className="header"><span>List of the coins</span><img alt="home-icon" onClick={this.handleHome} src={home}/></div>
 
                 </div>}
 
@@ -162,8 +162,8 @@ class HomePage extends Component {
                     <button onClick={() => this.handleAdvancedFilter()} className="homepage-search-button">Search</button>
 
                 </div>
-                {this.state.visible && <div className="advanced-filter-up"><span>Advanced filter</span><button onClick={this.handleClick} ><img src={upIcon} /></button></div>}
-                {this.state.visible || <div className="advanced-filter-down"><span>Advanced filter</span><button onClick={this.handleClick}><img src={downIcon} /></button></div>}
+                {this.state.visible && <div className="advanced-filter-up"><span>Advanced filter</span><button onClick={this.handleClick} ><img alt="up-icon" src={upIcon} /></button></div>}
+                {this.state.visible || <div className="advanced-filter-down"><span>Advanced filter</span><button onClick={this.handleClick}><img alt="down-icon" src={downIcon} /></button></div>}
 
                 {this.state.visible && <Filter searchdata={this.handleAdvancedSearchData} coins={this.state.coins} />}
 
@@ -171,20 +171,20 @@ class HomePage extends Component {
 
                     <div className="homepage-type-each">
                         <h1>Bullion coins</h1>
-                        <div className="advanced-filter-right"><span>Show all</span><button onClick={() => this.handleSelectAll('bullion')}><img src={rightIcon} /></button></div>
-                        <img onClick={() => this.handleSelectAll('bullion')} className="random-coin" src={this.state.bullionIMG} />
+                        <div className="advanced-filter-right"><span>Show all</span><button onClick={() => this.handleSelectAll('bullion')}><img alt="right-icon" src={rightIcon} /></button></div>
+                        <img alt="bullion" onClick={() => this.handleSelectAll('bullion')} className="random-coin" src={this.state.bullionIMG} />
                     </div>
 
                     <div className="homepage-type-each">
                         <h1>Exclusive coins</h1>
-                        <div className="advanced-filter-right"><span>Show all</span><button onClick={() => this.handleSelectAll('exclusive')}><img src={rightIcon} /></button></div>
-                        <img onClick={() => this.handleSelectAll('exclusive')} className="random-coin" src={this.state.exclusiveIMG} />
+                        <div className="advanced-filter-right"><span>Show all</span><button onClick={() => this.handleSelectAll('exclusive')}><img alt="right-icon" src={rightIcon} /></button></div>
+                        <img alt="exclusive" onClick={() => this.handleSelectAll('exclusive')} className="random-coin" src={this.state.exclusiveIMG} />
                     </div>
 
                     <div className="homepage-type-each">
                         <h1>Commemorative coins</h1>
-                        <div className="advanced-filter-right"><span>Show all</span><button onClick={() => this.handleSelectAll('commemorative')}><img src={rightIcon} /></button></div>
-                        <img onClick={() => this.handleSelectAll('commemorative')} className="random-coin" src={this.state.commemorativeIMG} />
+                        <div className="advanced-filter-right"><span>Show all</span><button onClick={() => this.handleSelectAll('commemorative')}><img alt="right-icon" src={rightIcon} /></button></div>
+                        <img alt="commemorative" onClick={() => this.handleSelectAll('commemorative')} className="random-coin" src={this.state.commemorativeIMG} />
                     </div>
 
 
@@ -193,7 +193,7 @@ class HomePage extends Component {
                     this.state.allcoins && <ShowAll data={this.state.showall} />
                 }
                  <div className="coins-history-text">Last viewed coins:</div>
-                <div className="coins-history"><img src={history}/>{(JSON.parse(localStorage.getItem('history')) || []).map((e,i)=><Link  key={i} to={`/eachcoin/${e.id}`}><div ><span className="coins-history-names">{e.name}</span><img  src={e.frontphoto}/></div></Link>)}</div>
+                <div className="coins-history"><img alt="history-icon" src={history}/>{(JSON.parse(localStorage.getItem('history')) || []).map((e,i)=><Link  key={i} to={`/eachcoin/${e.id}`}><div ><span className="coins-history-names">{e.name}</span><img alt="front-coin" src={e.frontphoto}/></div></Link>)}</div>
             </div>
         )
     }

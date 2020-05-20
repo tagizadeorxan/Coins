@@ -5,6 +5,22 @@ import { updateCoin,checkToken } from '../../../../features/actions';
 import { connect } from 'react-redux';
 
 
+let handleLocalStorage = (id,values) => {
+    let coins = JSON.parse(localStorage.getItem('coins')) || [];
+    let updated = [];
+    console.log(coins);
+    updated = coins.map(e => e.id == id? {...e,name: values.name,price : values.price}:e);
+    console.log(updated)
+    localStorage.setItem('coins', JSON.stringify(updated));
+    let history = JSON.parse(localStorage.getItem('history')) || [];
+    let historyUpdate = [];
+    console.log(history);
+    historyUpdate = history.map(e => e.id == id?{...e,name: values.name,price : values.price}:e);
+    console.log(historyUpdate);
+    localStorage.setItem('history', JSON.stringify(historyUpdate));
+}
+
+
 const Edit = (props) => {
 
     let [array, setArray] = useState([])
@@ -32,7 +48,7 @@ const Edit = (props) => {
 
 
     const { handleSubmit, register, errors, reset, setValue } = useForm();
-    const onSubmit = (values, e) => (props.updateCoin(id, values, props.state.newReducer.token),props.history.goBack() );
+    const onSubmit = (values, e) => (props.updateCoin(id, values, props.state.newReducer.token),props.history.goBack(),handleLocalStorage(id,values) );
 
 
     return (

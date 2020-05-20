@@ -81,11 +81,11 @@ getData = () => {
         }
         return (
             <div className="each-coin-container">
-            <div className="view-icon-container"> <img className="view-icon" src={viewIcon}/><span> {coin.active}</span></div>
+            <div className="view-icon-container"> <img className="view-icon" alt="viewcoin" src={viewIcon}/><span> {coin.active}</span></div>
                      
                 <div className="each-coin-images">
-                    <img src={coin.frontphoto} />
-                    <img src={coin.backphoto} />
+                    <img alt="coin-front" src={coin.frontphoto} />
+                    <img alt="coin-back" src={coin.backphoto} />
                    
                 </div>
 

@@ -16,7 +16,7 @@ componentDidMount () {
 
                 {this.props.data.map((e,i)=> 
                    <Link key={i} className="Link" to={`/eachcoin/${e.id}`}> <div className="show-each-coin" >
-                      <img src={e.frontphoto}/>
+                      <img alt="coin-front" src={e.frontphoto}/>
                       <div>
                           <h3>{e.name}</h3>
                           <p>{e.text.substring(100, e.text.lastIndexOf('.', 5))}</p>

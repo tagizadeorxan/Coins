@@ -45,7 +45,7 @@ class Login extends Component {
         return (
             <div className="login-container">
 
-                <div className="header"><span>Admin panel</span> <button className="home-button" onClick={this.handleHome}><img src={home} /></button></div>
+                <div className="header"><span>Admin panel</span> <button className="home-button" onClick={this.handleHome}><img alt="home" src={home} /></button></div>
 
                 <div className="admin-login-form">
 

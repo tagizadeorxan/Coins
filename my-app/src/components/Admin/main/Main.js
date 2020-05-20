@@ -3,7 +3,6 @@ import { adminLogout, checkToken } from '../../../features/actions';
 import { connect } from 'react-redux';
 import './main.css';
 import Add from './add';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Search from './search';
 
 

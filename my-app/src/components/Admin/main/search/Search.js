@@ -40,6 +40,14 @@ class Search extends Component {
 
     handleDelete(id) {
         this._isMounted && this.props.deleteCoin(id);
+        let coins = JSON.parse(localStorage.getItem('coins')) || [];
+        let updated = [];
+        updated = coins.filter(e => e.id !== id);
+        localStorage.setItem('coins', JSON.stringify(updated));
+        let history = JSON.parse(localStorage.getItem('history')) || [];
+        let historyUpdate = [];
+        historyUpdate = history.filter(e=>e.id !== id);
+        localStorage.setItem('history', JSON.stringify(historyUpdate));
     }
 
     handleScroll = () => {

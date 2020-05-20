@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Login from './components/Admin/login';
-import {BrowserRouter as Router,NavLink,Route} from 'react-router-dom';
+import {BrowserRouter as Router,Route} from 'react-router-dom';
 import Main from './components/Admin/main';
 import './index.css';
 import Edit from './components/Admin/main/edit';

@@ -59,7 +59,7 @@ class Buy extends Component {
                     <div className="shopping-cart">
                         <div>
                             {coins.map((c, i) => <div className="each-purchase" key={i}>
-                                <img src={c.frontphoto} />
+                                <img alt="coin-front"src={c.frontphoto} />
                                 <i>{c.name}</i>
                                 <b>{c.price}$</b>
                                 <strong>x 1</strong>
