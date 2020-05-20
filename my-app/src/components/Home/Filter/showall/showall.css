@@ -1,0 +1,43 @@
+.show-all-coins {
+    margin-left:65px;
+    margin-top: 35px;
+    display: flex;
+    flex-flow: row wrap;  
+}
+
+.show-all-coins div {
+    width: 600px;
+    margin-bottom: 15px;
+}
+
+.show-all-coins div img {
+    width: 120px;
+    margin-bottom: 15px;
+    border-radius: 50%;
+}
+
+.show-each-coin {
+    display: flex;
+    flex-direction: row;
+}
+
+.show-each-coin div {
+    margin-left: 40px;
+    width: 370px;
+    
+}
+
+
+.show-each-coin div h3 {
+    color:#833AE0;
+    margin-top:0;
+}
+
+.Link {
+    text-decoration: none;
+}
+
+.show-each-coin p {
+ color:black
+    
+}

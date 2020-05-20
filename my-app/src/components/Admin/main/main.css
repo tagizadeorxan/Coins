@@ -1,0 +1,35 @@
+.logout-button {
+    outline: none;
+    background-color: white;
+    border:none;
+    float: right;
+    margin-top: 35px;
+    margin-right: 35px;
+    background:transparent;
+}
+
+.logout-button:hover {
+   color: #833AE0;
+   cursor: pointer;
+}
+
+.admin-panel-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   
+}
+
+.header {
+    width: 600px;
+    height: 50px;
+    font-size: 50px;
+    font-weight: lighter;
+    margin-left: 65px;  
+    margin-top: 35px;  
+    
+}
+
+.admin-panel-container {
+    min-width: 868px;
+}

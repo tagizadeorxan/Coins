@@ -1,0 +1,212 @@
+.search {
+    display: flex;
+    flex-direction: row;
+    margin-left: 65px;  
+    margin-top: 35px; 
+    
+}
+
+.search-input {
+    display: flex;
+    flex-direction: column;
+    width: 500px; 
+    margin-right: 30px;
+}
+
+.search-input label{
+    font-weight: bold;
+    margin-bottom: 5px;
+ }
+
+.search-input input{
+   height: 50px;
+   font-size: 50px;
+}
+
+.search button{
+   margin-top:24px;
+   width: 120px;
+  background-color: #833AE0;
+  border:none;
+  color:white;
+ }
+
+ .add-coin {
+    margin-left: 65px; 
+    display: flex;
+    flex-direction: row;
+    margin-top: 25px;
+    position: fixed;
+    bottom: 0;
+ 
+    
+ }
+
+ .all-coins div:last-child {
+     margin-bottom: 220px;
+ }
+
+
+ .circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    font-size: 25px;
+    line-height: 150px;
+    text-align: center;
+    border:1px solid black;
+    margin-right: 50px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: white;
+  }
+
+  .circle:hover {
+      cursor: pointer;
+  }
+  .add-coin button {
+      border:none;
+      outline:none;
+      background-color: transparent;
+      text-decoration:underline;
+      cursor: pointer;
+      
+   
+  }
+
+  .each-coin {
+    margin-left: 65px; 
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+  }
+  .each-coin-text {
+       margin-left: 45px; 
+      display: flex;
+      flex-direction: column;
+      width: 224px;
+  }
+
+  .each-coin-text-name {
+      font-size: 16px;
+      color:#833AE0;
+      margin-bottom: 15px;
+      font-weight: bold;
+  }
+
+  .each-coin button {
+      margin-left: 35px;
+      width: 120px;
+      height: 50px;
+     background-color: #E5E5E5;
+     outline: none;
+     border:none;
+      margin-bottom: auto;
+
+  }
+
+  .each-coin img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+  }
+
+  .add-coin {
+  
+      /* backdrop-filter: blur(10px); */
+    animation-name: slideUp;
+	-webkit-animation-name: slideUp;	
+
+	animation-duration: 1s;	
+	-webkit-animation-duration: 1s;
+
+	animation-timing-function: ease;	
+	-webkit-animation-timing-function: ease;
+
+	visibility: visible !important;			
+}
+
+@keyframes slideUp {
+	0% {
+		transform: translateY(100%);
+	}
+	50%{
+		transform: translateY(-8%);
+	}
+	65%{
+		transform: translateY(4%);
+	}
+	80%{
+		transform: translateY(-4%);
+	}
+	95%{
+		transform: translateY(2%);
+	}			
+	100% {
+		transform: translateY(0%);
+	}	
+}
+
+@-webkit-keyframes slideUp {
+	0% {
+		-webkit-transform: translateY(100%);
+	}
+	50%{
+		-webkit-transform: translateY(-8%);
+	}
+	65%{
+		-webkit-transform: translateY(4%);
+	}
+	80%{
+		-webkit-transform: translateY(-4%);
+	}
+	95%{
+		-webkit-transform: translateY(2%);
+	}			
+	100% {
+		-webkit-transform: translateY(0%);
+	}	
+  }
+
+
+.animation-buttons:hover {
+    animation-name: pulse;
+	-webkit-animation-name: pulse;	
+
+	animation-duration: 1.5s;	
+	-webkit-animation-duration: 1.5s;
+
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.9);
+		opacity: 0.7;		
+	}
+	50% {
+		transform: scale(1);
+		opacity: 1;	
+	}	
+	100% {
+		transform: scale(0.9);
+		opacity: 0.7;	
+	}			
+}
+
+@-webkit-keyframes pulse {
+	0% {
+		-webkit-transform: scale(0.95);
+		opacity: 0.7;		
+	}
+	50% {
+		-webkit-transform: scale(1);
+		opacity: 1;	
+	}	
+	100% {
+		-webkit-transform: scale(0.95);
+		opacity: 0.7;	
+	}			
+}
+  

@@ -1,0 +1,130 @@
+.each-coin-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 50px;
+    
+
+}
+
+.each-coin-images {
+    display: flex;
+    flex-direction: column;
+    vertical-align: middle;
+    margin-right: 30px;
+}
+
+.each-coin-images img{
+   margin-bottom: 30px;
+   width:400px;
+   border-radius: 50%;
+}
+
+.each-coin-information-block {
+    width: 600px;
+    height: 830px;
+    background-color: rgba(196, 196, 196, 0.5);
+    border: 1px solid #C4C4C4;
+    padding: 10px 60px 10px 60px;
+    min-width: 400px;
+}
+
+table {
+    margin-top: 80px;
+    height: 320px;
+}
+
+table {
+    display: flex;
+    justify-content: center;
+    border-collapse: collapse;
+   
+}
+
+table td {
+   width: 280px;
+    padding-left:10px;
+    height: 30px;
+}
+
+table tr:nth-child(2n-1) {
+    background-color: rgba(255, 255, 255, 0.90);
+    
+}
+
+table tr:nth-child(2n-1) td{
+    border-bottom: 1px solid #B1ACAC;
+}
+
+table td:nth-child(2n-1) {
+    border-right: 1px solid #B1ACAC;
+}
+
+.each-coin-information-block  button{
+      outline: none;
+      border:none;
+      background: transparent;
+      text-decoration: underline;
+      cursor: pointer;
+     
+}
+
+.each-coin-text-box {
+    height: 350px;
+}
+
+.view-icon {
+    width: 15px;
+    height: 15px;
+}
+
+.view-icon-container {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.basket {
+    float: right;
+}
+
+@media only screen and (max-width: 1011px) {
+    .each-coin-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 50px;
+       align-items: center;
+        
+    
+    }
+
+    .each-coin-images {
+
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+}
+
+@media only screen and (max-width: 751px) {
+    .each-coin-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 50px;
+       align-items: center;
+        min-width: 723px;
+    
+    }
+
+    .each-coin-images {
+
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+}

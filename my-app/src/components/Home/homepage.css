@@ -1,0 +1,287 @@
+.advanced-filter-down button img {
+    width: 15px;
+    height: 15px;
+}
+
+.advanced-filter-down button {
+   background: none;
+   outline: none;
+   border:none;
+   vertical-align: middle;
+}
+
+
+
+.advanced-filter-up button img {
+     width: 15px;
+     height: 15px;
+}
+
+.advanced-filter-up button {
+    background: none;
+    outline: none;
+    border:none;
+    vertical-align: middle;
+}
+
+.advanced-filter-up {
+    margin-top: 10px;
+    margin-left: 65px;
+}
+
+.advanced-filter-down {
+    margin-top: 10px;
+    margin-left: 65px;
+}
+
+.advanced-filter-right span {
+    text-decoration: underline;
+}
+
+
+.advanced-filter-right img {
+    width: 15px;
+    height: 15px;
+
+}
+.advanced-filter-right button {
+    background: none;
+    outline: none;
+    border:none;
+    vertical-align: middle;
+}
+
+.advanced-filter-up span {
+text-decoration: underline;
+}
+
+.advanced-filter-down span {
+    text-decoration: underline;
+}
+
+.homepage-type-coins {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 60px;
+    min-width: 500px;
+}
+
+.homepage-type-each {
+    margin-right: 320px;
+}
+
+.random-coin {
+    width: 250px;
+    height: 250px;
+    margin-top: 30px;
+}
+
+
+
+.homepage-type-each button {
+    cursor: pointer;
+}
+
+
+
+
+
+.admin-panel {
+    margin-top: 25px;
+   
+}
+
+
+.admin-panel img {
+ position: static;
+
+}
+
+
+
+.homepage-type-each img {
+    background: transparent;
+    border-radius: 50%;
+    
+}
+
+
+.homepage-type-each:hover img{
+    transform: translateY(0);
+    box-shadow:
+      /* inset 0 0 60px whitesmoke, */
+      inset 20px 0 80px #f0f,
+      inset -20px 0 80px #0ff,
+      inset 20px 0 300px #f0f,
+      inset -20px 0 300px #0ff,
+      0 0 50px #fff,
+      -10px 0 80px #f0f,
+      10px 0 80px #0ff;
+      background-color: #f0f;
+     
+     
+  }
+  
+
+  .random-coin {
+    transition: width 2s, height 2s, transform 2s;
+    cursor: pointer;
+  }
+
+  .random-coin:hover {
+    width: 300px;
+    height: 300px;
+  }
+
+
+.homepage-type-coins {
+    min-width: 500px;
+    margin-left: 65px;
+}
+
+
+
+
+.coins-history {
+    display: flex;
+    flex-direction: row;
+    width: 15px;
+    margin-top:20px;
+    margin-left: 65px;
+}
+
+.coins-history img {
+    width: 50px;
+    margin-right: 15px;
+}
+
+
+
+.coins-history-text {
+    margin-top:60px;
+    margin-left:65px;
+    margin-bottom: 0;
+    color:black
+}
+
+
+.homepage-search-button {
+    cursor: pointer;
+}
+
+.homepage-search-button:hover {
+    animation-name: pulse;
+	-webkit-animation-name: pulse;	
+
+	animation-duration: 1.5s;	
+	-webkit-animation-duration: 1.5s;
+
+	animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.9);
+		opacity: 0.7;		
+	}
+	50% {
+		transform: scale(1);
+		opacity: 1;	
+	}	
+	100% {
+		transform: scale(0.9);
+		opacity: 0.7;	
+	}			
+}
+
+@-webkit-keyframes pulse {
+	0% {
+		-webkit-transform: scale(0.95);
+		opacity: 0.7;		
+	}
+	50% {
+		-webkit-transform: scale(1);
+		opacity: 1;	
+	}	
+	100% {
+		-webkit-transform: scale(0.95);
+		opacity: 0.7;	
+	}			
+}
+
+.admin-panel div {
+    float:right;
+    color:violet;
+}
+
+.coins-history-names {
+    position: absolute;
+    padding-top: 60px;
+    opacity: 0;
+    align-self: center;
+   color:black;
+   font-size: 5px;
+}
+
+.coins-history-names:hover {
+    opacity: 1;
+    color:#833AE0;
+    font-size: 15px;
+}
+
+.raiting-top-three-coins {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    margin-left: 60%;
+}
+
+.raiting-top-three-coins img {
+    width: 50px;
+}
+
+.raiting-top-three-coins div {
+    display: flex;
+    flex-direction: row;
+}
+
+.raiting-top-three-coins img{
+    border-radius: 50%;
+}
+
+.coins-history img {
+    border-radius: 50%;
+}
+
+.main-container {
+    min-width: 642px;
+}
+
+@media only screen and (max-width: 1670px) {
+    .homepage-type-coins {
+        flex-direction: column;
+    }
+    .coins-history {
+        flex-direction: column;
+    }
+
+    
+
+ 
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .homepage-type-coins {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (max-width: 1084px) {
+    .search {
+        flex-direction: column;
+    }
+}
