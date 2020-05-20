@@ -15,6 +15,7 @@ const gold = require('../../images/gold.png');
 const silver = require('../../images/silver.png');
 const bronze = require('../../images/bronze.png');
 const history = require('../../images/history.png');
+const home = require('../../images/home.png');
 
 class HomePage extends Component {
 
@@ -131,8 +132,13 @@ class HomePage extends Component {
             console.log(raiting)
             this.setState({raiting})
         }
-
+        
+     
     }
+
+    handleHome = () => {
+        window.location.href = '/';
+      }
 
     render() {
         return (
@@ -150,7 +156,7 @@ class HomePage extends Component {
                 </div>}
 
                 {this.state.allcoins && <div className="admin-panel-header">
-                    <div className="header"><span>List of the coins</span></div>
+                    <div className="header"><span>List of the coins</span><img onClick={this.handleHome} src={home}/></div>
 
                 </div>}
 

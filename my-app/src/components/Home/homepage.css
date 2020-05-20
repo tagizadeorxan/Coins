@@ -83,8 +83,18 @@ text-decoration: underline;
     cursor: pointer;
 }
 
+.header {
+    display: flex;
+    flex-direction: row;
+}
 
-
+.header img {
+    height: 50px;
+    vertical-align: baseline;
+    margin-left: 15px;
+    margin-top:5px;
+    cursor: pointer;
+}
 
 
 .admin-panel {
