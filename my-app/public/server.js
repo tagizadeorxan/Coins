@@ -84,14 +84,14 @@ async function checkToken(req) {
   if (!userToken || userToken == null) {
     return false;
   } else {
-      await ourToken(userToken).then(ourToken => {
-    if (!ourToken) {
-      return false;
-    } else { 
-      return true;
-    }
-  });
-  } 
+    await ourToken(userToken).then(ourToken => {
+      if (!ourToken) {
+        return false;
+      } else {
+        return true;
+      }
+    });
+  }
 
 }
 
@@ -99,18 +99,17 @@ async function ourToken(userToken) {
   let sql = 'SELECT c.token FROM coins.tokens c where c.token = ?';
 
   try {
-  result = await new Promise((res, rej) => {
-    db.query(sql, userToken, (err, results) => {
-      if (err) {
-        console.log("our token 1")
-        res(false);
-        return false;
-      }
-      console.log("our token 2")
-      res(true);
-      return true;
+    result = await new Promise((res, rej) => {
+      db.query(sql, userToken, (err, results) => {
+        if (err) {
+          res(false);
+          return false;
+        }
+        res(true);
+        return true;
+      })
     })
-  })} catch(err) {
+  } catch (err) {
     return false;
   }
 }
@@ -132,7 +131,6 @@ insertToken = (login, token) => {
   let sql = 'INSERT INTO coins.tokens SET ?';
   let query = db.query(sql, post, (err, results) => {
     if (err) {
-      console.log(err)
       return false;
     }
 
@@ -141,20 +139,14 @@ insertToken = (login, token) => {
 }
 
 app.post('/token', (req, res) => {
-console.log("bura birinci")
   checkCredentials(req).then(result => {
     if (!result) {
-      console.log("bura girir")
       res.status(401).send();
     } else {
-      console.log("ok login")
       const newToken = crypto.randomBytes(40).toString('hex');
       const login = req.body.login;
       deleteToken(req);
-      console.log(login);
-      console.log(newToken);
       insertToken(login, newToken);
-     
       res.json({ login: login, token: newToken })
       res.status(200).send();
     }
@@ -200,23 +192,18 @@ app.put('/coins/:id', (req, res) => {
   if (!checkToken(req)) {
     res.sendStatus(401);
   } else {
-    console.log("bura girdi")
     let sql = 'update coins.coinslist c set ?  where id=?';
     let query = db.query(sql, [req.body.data, req.params.id], (err, results) => {
       if (err) {
         res.status(404).send();
-        console.log("2bura girdi")
         return false;
       }
       let sql = 'SELECT * FROM coins.coinslist;';
       let query = db.query(sql, (err, result) => {
         if (err) {
-          console.log("3bura girdi")
           res.status(404);
         }
-        console.log("4bura girdi")
         res.status(200);
-        console.log(result);
         res.json(result);
       });
     });
@@ -241,20 +228,20 @@ app.get('/coins', (req, res) => {
 })
 
 app.get('/coins/:id', (req, res) => {
-    let sql = 'SELECT * FROM coins.coinslist where id=?';
-    let query = db.query(sql, req.params.id, (err, result) => {
-      if (err) {
-        res.status(404).send();
-      }
-      res.status(200);
-      res.json(result);
-    
-    });
+  let sql = 'SELECT * FROM coins.coinslist where id=?';
+  let query = db.query(sql, req.params.id, (err, result) => {
+    if (err) {
+      res.status(404).send();
+    }
+    res.status(200);
+    res.json(result);
+
+  });
 })
 
 
 
-app.put('/coins/active/:id',(req,res)=> {
+app.put('/coins/active/:id', (req, res) => {
   let sql = 'update coins.coinslist set active = active+1 where id = ?';
   let query = db.query(sql, req.params.id, (err, result) => {
     if (err) {
@@ -262,33 +249,30 @@ app.put('/coins/active/:id',(req,res)=> {
     }
     res.status(200);
     res.json(result);
-  
+
   });
 })
 
 
 
-app.post('/check',(req,res)=> {
+app.post('/check', (req, res) => {
   if (!checkToken(req)) {
     res.sendStatus(401);
-  }else {
-    
-      res.status(200).send();
-    }
-  }) 
-  
+  } else {
+
+    res.status(200).send();
+  }
+})
+
 
 
 
 
 
 app.delete('/coins/:id', (req, res) => {
-
   if (!checkToken(req)) {
-
     res.sendStatus(401);
   } else {
-    console.log(req.params.id)
     let sql = 'DELETE  FROM coins.coinslist where id=?';
     let query = db.query(sql, req.params.id, (err, result) => {
       if (err) {

@@ -5,25 +5,16 @@ import { updateCoin,checkToken } from '../../../../features/actions';
 import { connect } from 'react-redux';
 
 
-
-
-
-
-
 const Edit = (props) => {
 
     let [array, setArray] = useState([])
     let [element, setElement] = useState({ frontphoto: '', backphoto: '' })
     let [id, setID] = useState(0)
     
-
+   
     useEffect(() => {
-        console.log("working");
-        console.log(props);
         array = props.state.newReducer.coins;
-        console.log(array)
         element = array.find(e => e.id === +props.match.params.id)
-        console.log(element)
         if(element === undefined) {
             window.location.href = '/'
         }
@@ -31,12 +22,11 @@ const Edit = (props) => {
         setArray(array);
         setElement(element);
 
-
+        //setting default value for each input
         for (let [key, value] of Object.entries(element)) {
             setValue(key, value)
         }
 
-        // setValue("name", element.name);
 
     }, []);
 

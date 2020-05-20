@@ -2,12 +2,12 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import './add.css';
 import { addCoin } from '../../../../features/actions';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 const Add = (props) => {
-    const { handleSubmit, register, errors,reset } = useForm();
-    const onSubmit = (values,e) => (props.addCoin(values,props.state.newReducer.token),e.target.reset());
-    
+    const { handleSubmit, register, errors, reset } = useForm();
+    const onSubmit = (values, e) => (props.addCoin(values, props.state.newReducer.token), e.target.reset());
+
 
     return (
         <form className="container-form" onSubmit={handleSubmit(onSubmit)} >
@@ -49,7 +49,7 @@ const Add = (props) => {
             <div className="form-section-two">
                 <div id="textarea" className="input">
                     <label htmlFor="text">Text</label>
-                    <textarea id="text" name="text" ref={register({ required: "Required", pattern: { value:/[0-9a-zA-Z]{100,}/ ,message: "invalid text" } })} />
+                    <textarea id="text" name="text" ref={register({ required: "Required", pattern: { value: /[0-9a-zA-Z]{100,}/, message: "invalid text" } })} />
                     {errors.text && <div className="error">{errors.text.message}</div>}
                 </div>
                 <div id="quantityarea" className="input">
@@ -59,7 +59,7 @@ const Add = (props) => {
                 </div>
                 <div id="weightarea" className="input">
                     <label htmlFor="weight">Weight</label>
-                    <input id="weight" name="weight" ref={register({ required: "Required", pattern: { value: /^[+-]?\d+(\.\d+)?$/, message: "invalid weight" } }) } />
+                    <input id="weight" name="weight" ref={register({ required: "Required", pattern: { value: /^[+-]?\d+(\.\d+)?$/, message: "invalid weight" } })} />
                     {errors.weight && <div className="error">{errors.weight.message}</div>}
                 </div>
             </div>
@@ -67,36 +67,36 @@ const Add = (props) => {
             <div className="form-section-two">
                 <div id="obverse" className="input">
                     <label htmlFor="obverse">Link to obverse image</label>
-                    <input name="frontphoto" type="text" ref={register({ required: "Required", pattern: { value: '', message: "invalid link" } }) }/>
+                    <input name="frontphoto" type="text" ref={register({ required: "Required", pattern: { value: '', message: "invalid link" } })} />
                     {errors.obverse && <div className="error">{errors.obverse.message}</div>}
                 </div>
                 <div id="reverse" className="input">
                     <label htmlFor="reverse">Link to reverse image</label>
-                    <input name="backphoto" type="text" ref={register({ required: "Required", pattern: { value: '', message: "invalid link" } }) }/>
+                    <input name="backphoto" type="text" ref={register({ required: "Required", pattern: { value: '', message: "invalid link" } })} />
                     {errors.reverse && <div className="error">{errors.reverse.message}</div>}
                 </div>
 
                 <div >
-                   <select className="type-coin" name="typeID" ref={register({ required: "Required", pattern: { value: '', message: "invalid type" } }) }>
-                       <option value="1">Bullion</option>
-                       <option value="2">Exclusive</option>
-                       <option value="3">Commemorative</option>
-                   </select>
-                   {errors.type && <div className="error">{errors.type.message}</div>}
+                    <select className="type-coin" name="typeID" ref={register({ required: "Required", pattern: { value: '', message: "invalid type" } })}>
+                        <option value="1">Bullion</option>
+                        <option value="2">Exclusive</option>
+                        <option value="3">Commemorative</option>
+                    </select>
+                    {errors.type && <div className="error">{errors.type.message}</div>}
                 </div>
 
-             <div className="action-buttons">
-               <button >Add</button>
-               <button onClick={()=>props.handleMenu('add')} id="cancel">Cancel</button>
-             </div>
+                <div className="action-buttons">
+                    <button >Add</button>
+                    <button onClick={() => props.handleMenu('add')} id="cancel">Cancel</button>
+                </div>
 
-            
+
 
 
 
             </div>
-             
-                
+
+
         </form>
 
     );

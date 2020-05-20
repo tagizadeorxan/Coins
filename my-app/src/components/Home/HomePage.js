@@ -40,17 +40,13 @@ class HomePage extends Component {
         this.setState({ searchdata })
     }
 
+    // advanced filter  options recieving inputs from Filter js
     handleSearchData = () => {
 
         let result = [];
         let { searchdata } = this.state;
-
-        console.log(this.input.current.value);
-        console.log(searchdata);
         if (this.state.visible && searchdata !== undefined) {
 
-            console.log(searchdata);
-           
             this.setState({ searchdata });
             result = this.state.coins.filter(e =>
  e.name.substring(0, this.input.current.value.length).toLowerCase() === this.input.current.value.toLowerCase() &&
@@ -63,21 +59,16 @@ class HomePage extends Component {
                 && e.year < searchdata.yearto
             );
         } else {
-            console.log("bura girir")
             result = this.state.coins.filter(e =>
                 e.name.substring(0, this.input.current.value.length).toLowerCase() === this.input.current.value.toLowerCase())
         }
 
-
-        console.log(result)
         this.setState({ showall: result });
     }
 
 
     componentDidMount() {
         this.props.fetchCoins();
-
-
     }
 
     handleSelectAll(type) {
@@ -90,6 +81,7 @@ class HomePage extends Component {
         this.handleSearchData();
     }
 
+    // filter array to type of coins 
     componentWillReceiveProps(props) {
         let bullion = props.coins.filter(e => e.typeID === 1);
         let exclusive = props.coins.filter(e => e.typeID === 2);
@@ -133,7 +125,6 @@ class HomePage extends Component {
             this.setState({raiting})
         }
         
-     
     }
 
     handleHome = () => {

@@ -32,7 +32,6 @@ class Search extends Component {
         let input = this.input.current.value;
         let { coins } = this.state;
         let result = coins;
-        console.log(input.length);
         if (input.length >= 1) {
             result = coins.filter(e => e.name.substring(0, input.length).toLowerCase() === input.toLowerCase())
         }
