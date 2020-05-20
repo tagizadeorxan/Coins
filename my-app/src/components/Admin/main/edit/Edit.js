@@ -75,7 +75,7 @@ const Edit = (props) => {
             <div className="form-section-two">
                 <div id="textarea" className="input">
                     <label htmlFor="text">Text</label>
-                    <textarea id="text" name="text" ref={register({ required: "Required", pattern: { message: "invalid text" } })} />
+                    <textarea id="text" name="text" ref={register({ required: "Required", pattern: {value:/^[\s\S]{100,}$/, message: "invalid text" } })} />
                     {errors.text && <div className="error">{errors.text.message}</div>}
                 </div>
                 <div id="quantityarea" className="input">
