@@ -8,7 +8,7 @@ const viewIcon = require('../../../../images/view.png');
 class EachCoin extends Component {
 
 
-    state = { id:0 ,coin:{},loading:false,text:[],stringOne:'',stringTwo:'',stringThree:''}
+    state = { id:0 ,coin:{},loading:false,text:[],stringOne:'',stringTwo:'',stringThree:'',basketadd:false}
 
     constructor(props) {
         super(props)
@@ -26,6 +26,9 @@ class EachCoin extends Component {
         let arr = JSON.parse(localStorage.getItem('coins')) || [];
          arr.push(this.state.coin);
         localStorage.setItem('coins',JSON.stringify(arr));
+        this.setState({basketadd:true});
+        
+       setTimeout(()=>this.setState({basketadd:false}),1000);
 
     }
 
@@ -130,7 +133,7 @@ getData = () => {
 
                      <div>
                      <button onClick={()=> this.props.history.goBack()}>Back to the list</button>
-                     <button onClick={this.handleBasket} className="basket">Add to basket</button>
+                     <button onClick={this.handleBasket} className="basket">Add to basket {this.state.basketadd && <span>+1</span>}</button> 
                      </div>
                   
 

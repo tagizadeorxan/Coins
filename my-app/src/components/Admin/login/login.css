@@ -14,6 +14,7 @@
     margin-right: auto;
     width: 500px;
     margin-top:10%;
+    height: 600px;
 }
 
 .admin-login-form input {
@@ -142,3 +143,7 @@
 }
 
 
+.error-credential {
+  color:red;
+  height: 15px;
+}

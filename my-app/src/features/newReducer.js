@@ -5,7 +5,7 @@ let initialState = {
   login: localStorage.getItem('login'),
   token: localStorage.getItem('token'),
   coins: [],
-  loading: false,
+  loading: null,
   error: null,
   tokenloading: false
 }
@@ -19,7 +19,7 @@ export default function newReducer(state = initialState, action) {
         ...state,
         login: action.payload.login,
         token: action.payload.token,
-        loading: false
+        loading: null
       }
     case actions.ADMIN_LOGOUT:
 

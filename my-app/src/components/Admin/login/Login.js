@@ -53,10 +53,10 @@ class Login extends Component {
                     <input ref={this.login} id="login" type="text" />
                     <label htmlFor="password" >Password</label>
                     <input ref={this.pass} id="password" type="password" />
-
+                    {loading == false? <div className="error-credential">Wrong credential</div> : <div className="error-credential"></div>}
                     <button onClick={this.handleSign} type="submit">Sign in</button>
-
                     {loading && <div className="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>}
+                    
                 </div>
 
 

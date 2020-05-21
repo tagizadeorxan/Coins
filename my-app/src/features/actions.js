@@ -13,7 +13,7 @@ export const login = (body) => {
         return res.json();
       } else {
         dispatch(loginFailed())
-        alert("wrong credential, you don't have access to the admin panel");
+  
         throw new Error('Something went wrong');
       }
     })
