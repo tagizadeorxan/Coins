@@ -211,6 +211,7 @@
 }
   
 .all-coins {
+    margin-top: 15px;
     width: 900px;
     height: 400px !important;
     overflow-y: scroll;
