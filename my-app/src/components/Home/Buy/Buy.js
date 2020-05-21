@@ -24,7 +24,7 @@ class Buy extends Component {
         doc.autoTable({ html: '#my-table' })
         let newArray = [];
         let coins = JSON.parse(localStorage.getItem('coins')) || [];
-        if(coins.length >1) {
+        if(coins.length >0) {
             coins.filter(e => newArray.push([e.name, 1, `${e.price} USD`]))
             let total = Number(this.state.USD) * Number(this.state.coins.reduce((p, n) => p + Number(n.price), 0));
             // Or use javascript directly:
