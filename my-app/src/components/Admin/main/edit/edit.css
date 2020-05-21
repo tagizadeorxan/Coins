@@ -12,7 +12,7 @@
 
 .input input{
    height: 50px;
-   font-size: 50px;
+   font-size: 40px !important
 }
 
 .form-section-one {
@@ -38,8 +38,8 @@
 
 .form-section-one input{
    height: 50px;
-   font-size: 50px;
-   
+   font-size: 40px !important;
+   padding-left:10px;
 }
 
 
@@ -65,8 +65,8 @@ form {
 
 .form-section-two input{
    height: 50px;
-   font-size: 50px;
-  
+   font-size: 40px !important;
+   padding-left:10px;
 }
 
 #text {
