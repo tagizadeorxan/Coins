@@ -23,7 +23,8 @@ class Buy extends Component {
         var doc = new jsPDF()
         doc.autoTable({ html: '#my-table' })
         let newArray = [];
-        this.state.coins.filter(e => newArray.push([e.name, 1, `${e.price} USD`]))
+        let coins = JSON.parse(localStorage.getItem('coins')) || [];
+        coins.filter(e => newArray.push([e.name, 1, `${e.price} USD`]))
         let total = Number(this.state.USD) * Number(this.state.coins.reduce((p, n) => p + Number(n.price), 0));
         // Or use javascript directly:
         doc.autoTable({
