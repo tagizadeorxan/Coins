@@ -24,20 +24,26 @@ class Buy extends Component {
         doc.autoTable({ html: '#my-table' })
         let newArray = [];
         let coins = JSON.parse(localStorage.getItem('coins')) || [];
-        coins.filter(e => newArray.push([e.name, 1, `${e.price} USD`]))
-        let total = Number(this.state.USD) * Number(this.state.coins.reduce((p, n) => p + Number(n.price), 0));
-        // Or use javascript directly:
-        doc.autoTable({
-            head: [['CoinName', 'Quantity', 'Price']],
-            body: newArray,
-            foot: [['Total', '', `${total} RUB`]]
-        })
-
-        localStorage.setItem('coins', JSON.stringify([]));
-        doc.save('invoice.pdf');
-        let win = window.open('https://money.yandex.ru/to/4100112631273796', '_blank');
-        win.focus();
-        window.location.href = '/';
+        if(coins.length <1) {
+            coins.filter(e => newArray.push([e.name, 1, `${e.price} USD`]))
+            let total = Number(this.state.USD) * Number(this.state.coins.reduce((p, n) => p + Number(n.price), 0));
+            // Or use javascript directly:
+            doc.autoTable({
+                head: [['CoinName', 'Quantity', 'Price']],
+                body: newArray,
+                foot: [['Total', '', `${total} RUB`]]
+            })
+    
+            localStorage.setItem('coins', JSON.stringify([]));
+            doc.save('invoice.pdf');
+            let win = window.open('https://money.yandex.ru/to/4100112631273796', '_blank');
+            win.focus();
+            window.location.href = '/';
+        } else {
+            alert("no product in the basket to buy");
+        }
+          
+      
     }
 
 
