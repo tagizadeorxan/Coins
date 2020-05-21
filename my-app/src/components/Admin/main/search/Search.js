@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 
 class Search extends Component {
 
-    state = { visible: false, coins: [], show: [] }
+    state = { visible: true, coins: [], show: [] }
 
     _isMounted = false;
 
@@ -51,7 +51,7 @@ class Search extends Component {
     }
 
     handleScroll = () => {
-        this._isMounted && document.body.getBoundingClientRect().top < -100 ? this.setState({ visible: true }) : console.log();
+        this._isMounted && document.body.getBoundingClientRect().top < 0 ? this.setState({ visible: true }) : console.log();
     }
 
     getCoins() {
