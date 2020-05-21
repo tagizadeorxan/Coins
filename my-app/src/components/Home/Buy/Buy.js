@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import './buy.css';
 import * as jsPDF from 'jspdf';
 import 'jspdf-autotable';
+import Notification from './../../Alerts/notification';
 
 class Buy extends Component {
 
-    state = { coins: [], USD: 0 }
+    state = { coins: [], USD: 0 ,notification:<></>}
 
     componentDidMount() {
         let coins = JSON.parse(localStorage.getItem('coins')) || [];
@@ -40,8 +41,9 @@ class Buy extends Component {
             win.focus();
             window.location.href = '/';
         } else {
-            alert("no product in the basket to buy");
-            window.location.reload(false);
+           
+            this.setState({notification:<Notification notification="error" text="don't have any product in your basket"/>})
+            // window.location.reload(false);
         }
           
       
@@ -71,7 +73,7 @@ class Buy extends Component {
                                 <i>{c.name}</i>
                                 <b>{c.price}$</b>
                                 <strong>x 1</strong>
-                                <button onClick={() => this.deleteItem(c.id)} className="remove-button">x</button>
+                                <button onClick={() => this.deleteItem(c.id)} className="remove-button">remove</button>
                             </div>)}
                         </div>
 
@@ -79,7 +81,7 @@ class Buy extends Component {
                     <button onClick={this.handleBuy} className="buy-button" >Buy</button>
                     <button onClick={() => window.location.href = '/'} className="buy-button" >Shop</button>
                 </div>
-
+               {this.state.notification}
             </div>
         )
     }

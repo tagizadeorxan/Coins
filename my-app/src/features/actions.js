@@ -125,7 +125,6 @@ export const updateCoin = (id,coin,token) => {
         return res.json();
       } else {
         dispatch(fetchCoinsFailure)
-        alert("Update operation couldn't be completed")
         throw new Error('Something went wrong');
       }
     })
@@ -162,7 +161,6 @@ export const addCoin = (coin, token) => {
       if (res.status ===200) {
         return res.json();
       } else {
-        alert("Add operation couldn't be completed")
         dispatch(fetchCoinsFailure)
         throw new Error('Something went wrong');
       }
@@ -187,7 +185,6 @@ export const deleteCoin = (id) => {
   if (res.status ===200) {
     return res.json();
   } else {
-    alert("Delete operation couldn't be completed");
     dispatch(fetchCoinsFailure)
     throw new Error('Something went wrong!');
   }
