@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import './edit.css';
 import { updateCoin,checkToken } from '../../../../features/actions';
 import { connect } from 'react-redux';
-
+import Notification from '../../../Alerts/notification';
 
 let handleLocalStorage = (id,values) => {
     let coins = JSON.parse(localStorage.getItem('coins')) || [];
@@ -26,7 +26,7 @@ const Edit = (props) => {
     let [array, setArray] = useState([])
     let [element, setElement] = useState({ frontphoto: '', backphoto: '' })
     let [id, setID] = useState(0)
-    
+    let [result, setResult] = useState(<></>)
    
     useEffect(() => {
         array = props.state.newReducer.coins;
@@ -48,7 +48,9 @@ const Edit = (props) => {
 
 
     const { handleSubmit, register, errors, reset, setValue } = useForm();
-    const onSubmit = (values, e) => (props.updateCoin(id, values, props.state.newReducer.token),props.history.goBack(),handleLocalStorage(id,values) );
+    const onSubmit = (values, e) => (props.updateCoin(id, values, props.state.newReducer.token)
+        .then(res=> res === true? setResult(<Notification notification='success' text="successfully updated"/>)
+         : setResult(<Notification notification='error' text="problem while updating"/> )),setTimeout(()=>props.history.goBack(),2000),handleLocalStorage(id,values));
 
 
     return (
@@ -138,7 +140,7 @@ const Edit = (props) => {
                 </div>
 
             </div>
-
+               {result}
         </form>
 
     );

@@ -1,15 +1,26 @@
-import React from "react";
+import React,{useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import './add.css';
 import { addCoin } from '../../../../features/actions';
 import { connect } from 'react-redux';
+import Notification from '../../../Alerts/notification';
+
+
+
 
 const Add = (props) => {
+
+    let [result, setResult] = useState(<></>)
+
+   
     const { handleSubmit, register, errors, reset } = useForm();
-    const onSubmit = (values, e) => (props.addCoin(values, props.state.newReducer.token), e.target.reset());
+    const onSubmit = (values, e) => (props.addCoin(values, props.state.newReducer.token)
+    .then(res=> res === true? setResult(<Notification notification='success' text="successfully added"/>) : setResult(<Notification notification='error' text="problem while adding"/>)), e.target.reset());
+    
 
 
     return (
+        <div>
         <form className="container-form" onSubmit={handleSubmit(onSubmit)} >
             <div className="form-section-one">
                 <div className="input">
@@ -95,10 +106,11 @@ const Add = (props) => {
 
 
             </div>
-
-
+      {result}
+            
         </form>
-
+     
+</div>
     );
 };
 

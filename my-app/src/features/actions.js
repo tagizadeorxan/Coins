@@ -1,5 +1,7 @@
 import * as actions from './actionTypes';
 
+
+
 export const login = (body) => {
   return function (dispatch) {
     dispatch(loading());
@@ -107,7 +109,8 @@ export const loginFailed = () => ({
 
 export const updateCoin = (id,coin,token) => {
   console.log(id,coin,token)
-  return function (dispatch){
+  return  async function (dispatch){
+    let result = false;
     let options = {
       method: 'PUT',
       headers: { 'Content-type': 'application/json' },
@@ -117,7 +120,7 @@ export const updateCoin = (id,coin,token) => {
       })
 
     }
-    fetch(`http://localhost:3000/coins/${id}`, options).then((res) => {
+    await fetch(`http://localhost:3000/coins/${id}`, options).then((res) => {
       if (res.status ===200) {
         return res.json();
       } else {
@@ -127,13 +130,15 @@ export const updateCoin = (id,coin,token) => {
       }
     })
     .then((data) => {
-      alert("successfully updated")
-      dispatch(fetchCoinsSuccess(data))
+      result = true;
+      dispatch(fetchCoinsSuccess(data));
     })
     .catch((error) => {
       console.log(error)
     });
+    return result;
   }
+ 
   }
 
 
@@ -142,7 +147,8 @@ export const updateCoin = (id,coin,token) => {
 
 
 export const addCoin = (coin, token) => {
-  return function (dispatch) {
+  return async function (dispatch) {
+    let result = false;
     let options = {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
@@ -152,7 +158,7 @@ export const addCoin = (coin, token) => {
       })
 
     }
-    fetch(`http://localhost:3000/coins/add`, options).then((res) => {
+    await fetch(`http://localhost:3000/coins/add`, options).then((res) => {
       if (res.status ===200) {
         return res.json();
       } else {
@@ -162,18 +168,20 @@ export const addCoin = (coin, token) => {
       }
     })
     .then((data) => {
-      alert("succesfully added")
+      result = true;
       dispatch(fetchCoinsSuccess(data))
     })
     .catch((error) => {
       console.log(error)
     });
+    return result;
   }
 }
 
 export const deleteCoin = (id) => {
-  return function (dispatch) {
-    fetch(`http://localhost:3000/coins/${id}`, {
+  return async function (dispatch) {
+    let result = false;
+    await fetch(`http://localhost:3000/coins/${id}`, {
       method: 'DELETE'
     }).then((res) => {
   if (res.status ===200) {
@@ -185,12 +193,13 @@ export const deleteCoin = (id) => {
   }
 })
 .then((data) => {
-  alert("successfully deleted")
+ result = true;
   dispatch(fetchCoinsSuccess(data))
 })
 .catch((error) => {
   console.log(error)
 });
+return result;
   }
 }
 

@@ -67,7 +67,7 @@ export default function newReducer(state = initialState, action) {
 
       return {
         ...state,
-        loading: false,
+        loading: null,
         coins: action.payload
       };
 

@@ -3,10 +3,10 @@ import './search.css';
 import { fetchCoins, deleteCoin } from '../../../../features/actions';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import Notification from '../../../Alerts/notification';
 class Search extends Component {
 
-    state = { visible: true, coins: [], show: [] }
+    state = { visible: true, coins: [], show: [], notification: <></> }
 
     _isMounted = false;
 
@@ -39,15 +39,18 @@ class Search extends Component {
     }
 
     handleDelete(id) {
-        this._isMounted && this.props.deleteCoin(id);
+        this._isMounted && this.props.deleteCoin(id)
+            .then(res => res === true ? this.setState({ notification: <Notification notification='success' text="successfully deleted" /> })
+                : this.setState({ notification: <Notification notification='error' text="problem occured while deleting" /> }));
         let coins = JSON.parse(localStorage.getItem('coins')) || [];
         let updated = [];
         updated = coins.filter(e => e.id !== id);
         localStorage.setItem('coins', JSON.stringify(updated));
         let history = JSON.parse(localStorage.getItem('history')) || [];
         let historyUpdate = [];
-        historyUpdate = history.filter(e=>e.id !== id);
+        historyUpdate = history.filter(e => e.id !== id);
         localStorage.setItem('history', JSON.stringify(historyUpdate));
+        this.setState({ notification: null })
     }
 
     handleScroll = () => {
@@ -112,7 +115,7 @@ class Search extends Component {
                     <div onClick={() => this.props.handleMenu('add')} className="circle">+</div>
                 </div>}
 
-
+                {this.state.notification}
                 {/* <img  src={require("../../../../images/cent1.png")} /> */}
 
 
