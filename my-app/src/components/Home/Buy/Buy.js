@@ -41,6 +41,7 @@ class Buy extends Component {
             window.location.href = '/';
         } else {
             alert("no product in the basket to buy");
+            window.location.reload(false);
         }
           
       
