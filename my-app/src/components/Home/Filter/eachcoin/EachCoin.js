@@ -45,7 +45,7 @@ class EachCoin extends Component {
                if(res.status === 200) {
                    return res.json();
                } else {
-                   console.log("burami")
+                  
                    throw new Error ("problem")
                }}).then(coin => this.setState({coin:coin[0]},()=>this.getData()))
         }
@@ -53,7 +53,7 @@ class EachCoin extends Component {
 getData = () => {
     this.setState({loading:true})
     let text = this.state.coin.text.match(/[^\.!\?]+[\.!\?]+/g); 
-    console.log(text);
+   
     this.setState({text})
     let slice1 = Math.floor(text.length-text.length*80/100),
         slice2 = Math.floor(text.length-text.length*40/100),

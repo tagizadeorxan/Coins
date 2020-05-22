@@ -26,9 +26,6 @@ class Main extends Component {
         this.setState({ [type]: !this.state[type], search: !this.state.search })
     }
 
-    componentWillReceiveProps(props) {
-        console.log(props)
-    }
 
     render() {
 

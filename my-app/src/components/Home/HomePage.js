@@ -42,11 +42,10 @@ class HomePage extends Component {
 
     // advanced filter  options recieving inputs from Filter js
     handleSearchData = () => {
-  console.log("ok")
+
         let result = [];
         let { searchdata } = this.state;
         if (this.state.visible && searchdata !== undefined) {
-           console.log("not ok")
             this.setState({ searchdata });
             result = this.state.coins.filter(e =>
                 
@@ -98,7 +97,7 @@ class HomePage extends Component {
 
         let exclusiveIMG = exclusive[Math.floor(Math.random() * exclusive.length)];
         if (exclusiveIMG !== undefined) {
-            console.log(exclusiveIMG);
+          
             this.setState({ exclusiveIMG: exclusiveIMG.frontphoto })
         }
 
@@ -117,14 +116,13 @@ class HomePage extends Component {
                 yearfrom: 0,
                 yearto: 2020
             }
-            console.log(searchdata);
             this.setState({ searchdata });
         }
 
 
         if(props.coins.length>1) {
             let raiting = props.coins.sort((a, b) => b.active - a.active);
-            console.log(raiting)
+  
             this.setState({raiting})
         }
         

@@ -8,15 +8,11 @@ import Notification from '../../../Alerts/notification';
 let handleLocalStorage = (id,values) => {
     let coins = JSON.parse(localStorage.getItem('coins')) || [];
     let updated = [];
-    console.log(coins);
     updated = coins.map(e => e.id == id? {...e,name: values.name,price : values.price,frontphoto: values.frontphoto}:e);
-    console.log(updated)
     localStorage.setItem('coins', JSON.stringify(updated));
     let history = JSON.parse(localStorage.getItem('history')) || [];
     let historyUpdate = [];
-    console.log(history);
     historyUpdate = history.map(e => e.id == id?{...e,name: values.name,price : values.price,frontphoto: values.frontphoto}:e);
-    console.log(historyUpdate);
     localStorage.setItem('history', JSON.stringify(historyUpdate));
 }
 

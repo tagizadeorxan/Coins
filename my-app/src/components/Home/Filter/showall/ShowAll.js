@@ -5,11 +5,6 @@ import {Link} from 'react-router-dom';
 class ShowAll extends Component {
 
 
-
-componentDidMount () {
-    console.log(this.props.data);
-}
-
     render() {
         return (
             <div className="show-all-coins">

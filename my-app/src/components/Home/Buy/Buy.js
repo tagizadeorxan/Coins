@@ -28,7 +28,6 @@ class Buy extends Component {
        
         let newArray = [];
         let coins = JSON.parse(localStorage.getItem('coins')) || [];
-        console.log(coins.length)
         if(coins.length >0) {
             var doc = new jsPDF()
             doc.autoTable({ html: '#my-table' })

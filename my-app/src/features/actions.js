@@ -57,20 +57,17 @@ export const tokenFailure = () => ({
 
 export const checkToken = (token) => {
   return function (dispatch) {
-         console.log(token);
+       
         dispatch(tokenCheckingBegin());
         if(token === null) {
           dispatch(tokenFailure());
         } else {
-          console.log("bura"+token)
             fetch('http://localhost:3000/check', {
           method: 'POST',
           body: JSON.stringify({token}),
           headers: { 'Content-type': 'application/json' }
         }).then(res=> {
           if(res.status === 200) {
-            console.log(res);
-            console.log('bu bas verdi')
             dispatch(tokenSuccess());
             return true;
           } else {
@@ -108,7 +105,6 @@ export const loginFailed = () => ({
 
 
 export const updateCoin = (id,coin,token) => {
-  console.log(id,coin,token)
   return  async function (dispatch){
     let result = false;
     let options = {

@@ -82,14 +82,14 @@ export default function newReducer(state = initialState, action) {
 
 
     case actions.CHECK_TOKEN:
-      console.log("newreducer check token")
+     
       return {
         ...state,
         tokenloading: true
       };
 
     case actions.TOKEN_SUCCESS:
-      console.log("success")
+      
       return {
         ...state,
         tokenloading: false

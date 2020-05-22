@@ -34,7 +34,6 @@ class Filter extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props);
         let countries = [], compositions = [], qualities = [];
         this.props.coins.map(e => (countries.push(e.issuingcountry.toUpperCase()), compositions.push(e.composition.toUpperCase()), qualities.push(e.quality.toUpperCase())));
         countries = [...new Set(countries)];
