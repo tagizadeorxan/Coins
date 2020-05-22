@@ -12,8 +12,12 @@ class Buy extends Component {
         let coins = JSON.parse(localStorage.getItem('coins')) || [];
         this.setState({ coins });
         this.getCurrency();
+        window.addEventListener("focus", this.onFocus)
     }
 
+    onFocus = () => {
+         window.location.reload(false)
+    }
     // USD to RUB currency api
     getCurrency = () => {
         fetch("https://api.exchangeratesapi.io/latest?symbols=RUB,USD").then(data => data.json()).then(usd => this.setState({ USD: usd.rates.RUB }))
@@ -24,6 +28,7 @@ class Buy extends Component {
        
         let newArray = [];
         let coins = JSON.parse(localStorage.getItem('coins')) || [];
+        console.log(coins.length)
         if(coins.length >0) {
             var doc = new jsPDF()
             doc.autoTable({ html: '#my-table' })
@@ -41,10 +46,9 @@ class Buy extends Component {
             let win = window.open('https://money.yandex.ru/to/4100112631273796', '_blank');
             win.focus();
             window.location.href = '/';
-        } else {
-           
+        } else { 
             this.setState({notification:<Notification notification="error" text="don't have any product in your basket"/>})
-            // window.location.reload(false);
+            setTimeout(()=>this.setState({notification:null}),2000)
         }
           
       
