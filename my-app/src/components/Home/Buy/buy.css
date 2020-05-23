@@ -36,16 +36,38 @@
 }
 
 .each-purchase img {
+    margin-right: 15px;
     width: 50px;
     border-radius: 50%;
     transition: width 2s, height 2s, transform 1s;
 }
 
 .each-purchase img:hover {
-    width: 250px;
-    
+    width: 250px;  
 }
 
+
+.remove-button {
+ 
+
+    font-size: 15px;
+    cursor: pointer;
+    color:#833AE0;
+    float: right;
+    margin-left: 45px;
+    margin-right: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border:1px solid #833AE0 !important;
+}
+
+
+.remove-button:hover {
+    background-color: red;
+    color:white;
+    border:1px solid red !important;
+}
 .shopping-total-sum {
     font-size: 65px;
   
@@ -64,16 +86,7 @@
     cursor: pointer;
 }
 
-.remove-button {
-    outline: none;
-    background: none;
-    border:none;
-    font-size: 15px;
-    cursor: pointer;
-    color:#833AE0;
-    float: right;
-    margin-left: 45px;
-}
+
 
 iframe {
     width: 500px;
@@ -85,10 +98,9 @@ iframe {
 }
 
 
-.each-purchase img {
-    margin-right: 15px;
-}
+
 
 .each-purchase  {
     width: 800px;
 }
+

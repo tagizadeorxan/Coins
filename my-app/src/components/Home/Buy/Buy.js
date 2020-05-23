@@ -90,7 +90,7 @@ class Buy extends Component {
                         <div>
                             {coins.map((c, i) => <div className="each-purchase" key={i}>
 
-
+                            
                             <img  onClick={this.handle3D} alt="coin-front" src={c.frontphoto} />
                             <img  onClick={this.handle3D} alt="coin-front" src={c.backphoto} />
                                 <i>{c.name}</i>
@@ -98,7 +98,7 @@ class Buy extends Component {
                                 <button onClick={() => this.quantityChange('minus', c.id)}>-</button>
                                 <strong>{c.quantity} qty</strong>
                                 <button onClick={() => this.quantityChange('plus', c.id)}>+</button>
-                                <button onClick={() => this.deleteItem(c.id)} className="remove-button">remove</button>
+                                <button onClick={() => this.deleteItem(c.id)} className="remove-button">x</button>
                             </div>)}
                         </div>
 
