@@ -18,7 +18,7 @@ class Buy extends Component {
     quantityChange = (type, id) => {
         let coins = JSON.parse(localStorage.getItem('coins')) || [];
         if (type === 'minus') {
-            coins.map(c => c.id === id ? c.quantity-- : null);
+            coins.map(c => c.id === id ? c.quantity>1?c.quantity-- :null : null);
         } else {
             coins.map(c => c.id === id ? c.quantity++ : null);
         }
@@ -72,6 +72,10 @@ class Buy extends Component {
         this.setState({ coins });
     }
 
+    handle3D = (e) => {
+        console.log(e.target)
+      e.target.parentNode.parentNode.classList.toggle("is-flipped");
+    }
 
 
     render() {
@@ -80,12 +84,15 @@ class Buy extends Component {
             <div className="shopping-container">
 
                 <div>
-                    <p className="shopping-total-sum">Total: {coins.reduce((p, n) => p + Number(n.price)*n.quantity, 0)}$ / {Math.round(Number(this.state.USD) * Number(coins.reduce((p, n) => p + Number(n.price)*n.quantity, 0)))}₽</p>
+                    <p className="shopping-total-sum">Total: {coins.reduce((p, n) => p + Number(n.price) * n.quantity, 0)}$ / {Math.round(Number(this.state.USD) * Number(coins.reduce((p, n) => p + Number(n.price) * n.quantity, 0)))}₽</p>
 
                     <div className="shopping-cart">
                         <div>
                             {coins.map((c, i) => <div className="each-purchase" key={i}>
-                                <img alt="coin-front" src={c.frontphoto} />
+
+
+                            <img  onClick={this.handle3D} alt="coin-front" src={c.frontphoto} />
+                            <img  onClick={this.handle3D} alt="coin-front" src={c.backphoto} />
                                 <i>{c.name}</i>
                                 <b>{c.price}$</b>
                                 <button onClick={() => this.quantityChange('minus', c.id)}>-</button>

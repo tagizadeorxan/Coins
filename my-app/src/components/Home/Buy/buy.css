@@ -83,3 +83,12 @@ iframe {
     margin-left:auto;
     margin-top:50px;
 }
+
+
+.each-purchase img {
+    margin-right: 15px;
+}
+
+.each-purchase  {
+    width: 800px;
+}
