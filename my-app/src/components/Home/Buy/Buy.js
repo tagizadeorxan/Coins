@@ -80,7 +80,7 @@ class Buy extends Component {
             <div className="shopping-container">
 
                 <div>
-                    <p className="shopping-total-sum">Total: {coins.reduce((p, n) => p + Number(n.price), 0)}$ / {Math.round(Number(this.state.USD) * Number(coins.reduce((p, n) => p + Number(n.price), 0)))}₽</p>
+                    <p className="shopping-total-sum">Total: {coins.reduce((p, n) => p + Number(n.price)*n.quantity, 0)}$ / {Math.round(Number(this.state.USD) * Number(coins.reduce((p, n) => p + Number(n.price)*n.quantity, 0)))}₽</p>
 
                     <div className="shopping-cart">
                         <div>
