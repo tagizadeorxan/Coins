@@ -24,6 +24,12 @@
     margin-right: 25px;
     
 }
+.each-purchase button {
+    border:none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+}
 
 .shopping-container {
   text-align: center;

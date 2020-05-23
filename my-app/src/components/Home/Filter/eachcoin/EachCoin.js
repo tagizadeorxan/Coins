@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './eachcoin.css';
+import Notification from './../../../Alerts/notification';
 const viewIcon = require('../../../../images/view.png');
 
 
@@ -8,7 +9,7 @@ const viewIcon = require('../../../../images/view.png');
 class EachCoin extends Component {
 
 
-    state = { id:0 ,coin:{},loading:false,text:[],stringOne:'',stringTwo:'',stringThree:'',basketadd:false}
+    state = { id:0 ,coin:{},loading:false,text:[],stringOne:'',stringTwo:'',stringThree:'',notification:<></>}
 
     constructor(props) {
         super(props)
@@ -24,11 +25,18 @@ class EachCoin extends Component {
 
     handleBasket = () => {
         let arr = JSON.parse(localStorage.getItem('coins')) || [];
-         arr.push(this.state.coin);
+        let result = arr.find(c=>c.id === this.state.coin.id);
+        if(result) {
+            arr.map(c=> c.id === this.state.coin.id? c.quantity++:null)
+        } else{
+            this.state.coin.quantity = 1;
+            arr.push(this.state.coin);
+        }
+         
         localStorage.setItem('coins',JSON.stringify(arr));
-        this.setState({basketadd:true});
+        this.setState({notification:<Notification notification="info" text="coin sucessfully added to the basket"/>});
         
-       setTimeout(()=>this.setState({basketadd:false}),1000);
+       setTimeout(()=>this.setState({notification:null}),200);
 
     }
 
@@ -133,13 +141,13 @@ getData = () => {
 
                      <div>
                      <button onClick={()=> this.props.history.goBack()}>Back to the list</button>
-                     <button onClick={this.handleBasket} className="basket">Add to basket {this.state.basketadd && <span>+1</span>}</button> 
+                     <button onClick={this.handleBasket} className="basket">Add to basket</button> 
                      </div>
                   
 
                 </div>
 
-
+                   {this.state.notification}
             </div>
         )
 
