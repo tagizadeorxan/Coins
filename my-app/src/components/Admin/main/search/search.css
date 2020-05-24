@@ -37,7 +37,7 @@
     flex-direction: row;
     margin-top: 25px;
     position: fixed;
-    bottom: 40px;
+    bottom: 5px;
  
     
  }
@@ -112,7 +112,7 @@
   }
 
   .add-coin {
-  
+
       /* backdrop-filter: blur(10px); */
     animation-name: slideUp;
 	-webkit-animation-name: slideUp;	
