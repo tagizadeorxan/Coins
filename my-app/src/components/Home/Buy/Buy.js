@@ -23,13 +23,13 @@ class Buy extends Component {
             coins.map(c => c.id === id ? c.quantity++ : null);
         }
         localStorage.setItem('coins', JSON.stringify(coins));
-        // this.setState({ coins });
+         this.setState({ coins });
     }
 
 
-    // onFocus = () => {
-    //     window.location.reload(false)
-    // }
+    onFocus = () => {
+        window.location.reload(false)
+    }
     // USD to RUB currency api
     getCurrency = () => {
         fetch("https://api.exchangeratesapi.io/latest?symbols=RUB,USD").then(data => data.json()).then(usd => this.setState({ USD: usd.rates.RUB }))

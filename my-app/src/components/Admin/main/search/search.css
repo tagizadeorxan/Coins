@@ -102,7 +102,7 @@
      outline: none;
      border:none;
       margin-bottom: auto;
-
+  cursor: pointer;
   }
 
   .each-coin img {
