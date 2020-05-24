@@ -136,9 +136,9 @@ class HomePage extends Component {
         return (
             <div className="main-container">
              <div className="raiting-top-three-coins">
-                <div><img alt="gold-icon" src={gold}/><img alt="coin" src={this.state.raiting.length>1? this.state.raiting[0].frontphoto : null}/></div>
-                <div><img alt="silver-icon" src={silver}/><img alt="coin" src={this.state.raiting.length>1? this.state.raiting[1].frontphoto : null}/></div>
-                <div><img alt="bronze-icon" src={bronze}/><img alt="coin" src={this.state.raiting.length>1? this.state.raiting[2].frontphoto : null}/></div>
+                <div><img alt="gold-icon" src={gold}/><Link  to={this.state.raiting.length>1? `/eachcoin/${this.state.raiting[0].id}`:null}><img alt="coin" src={this.state.raiting.length>1? this.state.raiting[0].frontphoto : null}/></Link></div>
+                <div><img alt="silver-icon" src={silver}/><Link  to={this.state.raiting.length>1? `/eachcoin/${this.state.raiting[1].id}`:null}><img alt="coin" src={this.state.raiting.length>1? this.state.raiting[1].frontphoto : null}/></Link></div>
+                <div><img alt="bronze-icon" src={bronze}/><Link  to={this.state.raiting.length>1? `/eachcoin/${this.state.raiting[2].id}`:null}><img alt="coin" src={this.state.raiting.length>1? this.state.raiting[2].frontphoto : null}/></Link></div>
              </div>
              <NavLink className="admin-panel" to='/buy'><img alt="buy-icon" src={buy}/><div>{(JSON.parse(localStorage.getItem('coins')) || []).length}</div></NavLink>
                 <NavLink className="admin-panel" to='/admin'><img alt="admin-icon" src={admin}/></NavLink>
