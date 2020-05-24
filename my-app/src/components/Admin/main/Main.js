@@ -5,6 +5,7 @@ import './main.css';
 import Add from './add';
 import Search from './search';
 
+const logout = require('../../../images/logout.png');
 
 
 class Main extends Component {
@@ -44,7 +45,7 @@ class Main extends Component {
                     <div>
                         <div className="admin-panel-header">
                             <div className="header"><span>Admin panel</span></div>
-                            <button className="logout-button" onClick={this.handleLogout}>log out</button>
+                            <button  className="logout-button" onClick={this.handleLogout}><img   alt="logout" src={logout}/></button>
                         </div>
                     </div>
                     {search && <Search handleMenu={this.handleMenu} />}

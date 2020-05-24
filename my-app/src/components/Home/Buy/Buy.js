@@ -18,7 +18,7 @@ class Buy extends Component {
     quantityChange = (type, id) => {
         let coins = JSON.parse(localStorage.getItem('coins')) || [];
         if (type === 'minus') {
-            coins.map(c => c.id === id ? c.quantity>1?c.quantity-- :null : null);
+            coins.map(c => c.id === id ? c.quantity > 1 ? c.quantity-- : null : null);
         } else {
             coins.map(c => c.id === id ? c.quantity++ : null);
         }
@@ -72,7 +72,7 @@ class Buy extends Component {
         this.setState({ coins });
     }
 
-  
+
 
 
     render() {
@@ -87,9 +87,9 @@ class Buy extends Component {
                         <div>
                             {coins.map((c, i) => <div className="each-purchase" key={i}>
 
-                            
-                            <img  onClick={this.handle3D} alt="coin-front" src={c.frontphoto} />
-                            <img  onClick={this.handle3D} alt="coin-front" src={c.backphoto} />
+
+                                <img onClick={this.handle3D} alt="coin-front" src={c.frontphoto} />
+                                <img onClick={this.handle3D} alt="coin-front" src={c.backphoto} />
                                 <i>{c.name}</i>
                                 <b>{c.price}$</b>
                                 <button onClick={() => this.quantityChange('minus', c.id)}>-</button>
