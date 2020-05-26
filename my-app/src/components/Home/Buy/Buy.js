@@ -3,10 +3,16 @@ import './buy.css';
 import * as jsPDF from 'jspdf';
 import 'jspdf-autotable';
 import Notification from './../../Alerts/notification';
+import CreditCard from './CreditCard';
+import Cards from 'react-credit-cards';
 
 class Buy extends Component {
 
-    state = { coins: [], USD: 0, notification: <></> }
+    state = { coins: [], USD: 0, notification: <></>,   cvc: '',
+    expiry: '',
+    focus: '',
+    name: '',
+    number: '', }
 
     componentDidMount() {
         let coins = JSON.parse(localStorage.getItem('coins')) || [];
@@ -37,10 +43,17 @@ class Buy extends Component {
 
     //payment and creating invoice
     handleBuy = () => {
-
+        let {cvc,expiry,name,number} = this.state;
+        
         let newArray = [];
         let coins = JSON.parse(localStorage.getItem('coins')) || [];
         if (coins.length > 0) {
+
+            if(cvc == '' || expiry == '' || name == '' || number == '' ) {
+                this.setState({ notification: <Notification notification="error" text="please enter credit card details" /> })
+                setTimeout(() => this.setState({ notification: null }), 2000)
+            } else {
+
             var doc = new jsPDF()
             doc.autoTable({ html: '#my-table' })
             coins.filter(e => newArray.push([e.name, e.quantity, `${e.price} USD`]))
@@ -57,12 +70,12 @@ class Buy extends Component {
             let win = window.open('https://money.yandex.ru/to/4100112631273796', '_blank');
             win.focus();
             window.location.href = '/';
-        } else {
+       } } else {
             this.setState({ notification: <Notification notification="error" text="don't have any product in your basket" /> })
             setTimeout(() => this.setState({ notification: null }), 2000)
         }
 
-
+    
     }
 
 
@@ -72,6 +85,16 @@ class Buy extends Component {
         this.setState({ coins });
     }
 
+    handleInputFocus = (e) => {
+        this.setState({ focus: e.target.name });
+      }
+      
+      handleInputChange = (e) => {
+        const { name, value } = e.target;
+        
+        this.setState({ [name]: value });
+      }
+      
 
 
 
@@ -104,6 +127,18 @@ class Buy extends Component {
                     <button onClick={() => window.location.href = '/'} className="buy-button" >Shop</button>
                 </div>
                 {this.state.notification}
+
+                <div id="PaymentForm">
+        <Cards
+          cvc={this.state.cvc}
+          expiry={this.state.expiry}
+          focused={this.state.focus}
+          name={this.state.name}
+          number={this.state.number}
+        />
+
+                <CreditCard handleInputFocus={this.handleInputFocus} handleInputChange={this.handleInputChange}/>
+                </div>
             </div>
         )
     }
