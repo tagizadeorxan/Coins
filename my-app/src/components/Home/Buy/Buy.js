@@ -53,7 +53,7 @@ class Buy extends Component {
                 this.setState({ notification: <Notification notification="error" text="please enter credit card details" /> })
                 setTimeout(() => this.setState({ notification: null }), 2000)
             } else {
-
+ console.log()
             var doc = new jsPDF()
             doc.autoTable({ html: '#my-table' })
             coins.filter(e => newArray.push([e.name, e.quantity, `${e.price} USD`]))
