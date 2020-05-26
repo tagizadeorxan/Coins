@@ -16,31 +16,33 @@ export default class CreditCard extends React.Component {
         	<input
             type="tel"
             name="number"
-            maxLength='16'
+            maxLength="16"
             placeholder="Card Number"
             onChange={this.props.handleInputChange}
             onFocus={this.props.handleInputFocus}
           />
+          <i>E.g.: 49..., 51..., 36..., 37...</i>
             	<input
             type="text"
             name="name"
             placeholder="Name"
+            maxLength='18'
             onChange={this.props.handleInputChange}
             onFocus={this.props.handleInputFocus}
           />
 
 <input
-            type="number"
+            type="tel"
             name="expiry"
-            placeholder="expiry date"
-            maxLength='2'
+            placeholder="Expiry date"
+            maxLength='4'
             onChange={this.props.handleInputChange}
             onFocus={this.props.handleInputFocus}
           />
 
           
 <input
-            type="number"
+            type="tel"
             name="cvc"
             placeholder="cvc"
             maxLength="3"

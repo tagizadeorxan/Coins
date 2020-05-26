@@ -69,7 +69,6 @@ class Buy extends Component {
             doc.save('invoice.pdf');
             let win = window.open('https://money.yandex.ru/to/4100112631273796', '_blank');
             win.focus();
-            window.location.href = '/';
        } } else {
             this.setState({ notification: <Notification notification="error" text="don't have any product in your basket" /> })
             setTimeout(() => this.setState({ notification: null }), 2000)
@@ -91,8 +90,7 @@ class Buy extends Component {
       
       handleInputChange = (e) => {
         const { name, value } = e.target;
-        
-        this.setState({ [name]: value });
+        this.setState({ [name]: value }) 
       }
       
 
@@ -137,7 +135,7 @@ class Buy extends Component {
           number={this.state.number}
         />
 
-                <CreditCard handleInputFocus={this.handleInputFocus} handleInputChange={this.handleInputChange}/>
+                <CreditCard handleInputFocus={this.handleInputFocus} handleInputChange={this.handleInputChange} state={this.state}/>
                 </div>
             </div>
         )
